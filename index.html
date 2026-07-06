@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🧸🎂</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6e7,#ffeaf4,#fff6fb);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:25px;
+width:90%;
+max-width:360px;
+box-shadow:0 0 25px rgba(255,105,180,.4);
+position:relative;
+z-index:5;
+}
+
+input{
+width:90%;
+padding:12px;
+margin-top:15px;
+border-radius:12px;
+border:2px solid pink;
+outline:none;
+}
+
+button{
+margin-top:15px;
+padding:12px 22px;
+border:none;
+border-radius:12px;
+background:#ff4f9b;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+#surprise{
+display:none;
+}
+
+h1{
+color:#ff1493;
+}
+
+.message{
+margin-top:15px;
+font-size:18px;
+color:#444;
+line-height:1.6;
+}
+
+.teddy{
+position:absolute;
+font-size:55px;
+animation:slide 5s linear infinite;
+}
+
+.t1{top:10%;left:-70px;animation-delay:0s;}
+.t2{top:35%;left:-70px;animation-delay:1.5s;}
+.t3{top:65%;left:-70px;animation-delay:3s;}
+
+@keyframes slide{
+0%{left:-80px;}
+100%{left:110%;}
+}
+
+.heart{
+position:absolute;
+bottom:-40px;
+font-size:25px;
+animation:float 5s linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120vh);}
+}
+
+.sparkle{
+font-size:28px;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.3;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="login">
+<h2>🔐 Enter Password</h2>
+
+<input type="password" id="pass" placeholder="Password">
+
+<br>
+
+<button onclick="openGift()">Open Gift 🎁</button>
+
+<p id="wrong" style="color:red;margin-top:10px;"></p>
+</div>
+
+<div class="card" id="surprise">
+
+<div class="teddy t1">🧸</div>
+<div class="teddy t2">🧸</div>
+<div class="teddy t3">🧸</div>
+
+<h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+<div class="sparkle">✨💖🎂💝✨</div>
+
+<div class="message">
+To the sweetest Pookie 🥺💖<br><br>
+
+May your day be filled with smiles 😊,<br>
+love ❤️,<br>
+lots of hugs 🤗,<br>
+cute teddy bears 🧸,<br>
+and endless happiness! 🌸✨<br><br>
+
+Stay adorable forever! 💕🎀<br><br>
+
+🎂🧸💖🌸🎉🥳✨
+</div>
+
+</div>
+
+<script>
+function openGift(){
+var password="1708";
+
+if(document.getElementById("pass").value===password){
+document.getElementById("login").style.display="none";
+document.getElementById("surprise").style.display="block";
+
+for(let i=0;i<35;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML=["💖","💕","💗","💝","❤️","🌸","✨"][Math.floor(Math.random()*7)];
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(h);
+}
+}else{
+document.getElementById("wrong").innerHTML="❌ Wrong Password!";
+}
+}
+</script>
+
+</body>
+</html>
